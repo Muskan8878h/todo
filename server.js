@@ -15,7 +15,7 @@ app.use(express.json());
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
     .then(() => { console.log('Connected to MongoDB'); })
-    .catch(() => { console.log('Error connecting to MongoDB:', err); });
+    .catch((err) => console.log('Error connecting to MongoDB:', err));
 
 
 const todo=mongoose.model('Todo',new mongoose.Schema({
