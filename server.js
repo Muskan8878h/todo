@@ -28,6 +28,17 @@ app.get('/todos', async(req, res) => {
     res.json(await todo.find());
 });
 
+app.post('/todos', async (req,res) => {
+    const todo = await Todo.create({ text : req.body.text });
+    res.json(todo);
+})
+
+app.delete("/todo/:id", async (req, res) => {
+    await Todo.findByIdAndDelete(req.params.id);
+    res.json({message : "Deleted"})
+})
+
+
 // Start the server
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
