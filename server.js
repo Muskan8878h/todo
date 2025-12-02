@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((err) => console.log('Error connecting to MongoDB:', err));
 
 
-const todo=mongoose.model('Todo',new mongoose.Schema({
+const todo=mongoose.model('todos',new mongoose.Schema({
     text:String
 }));    
 
