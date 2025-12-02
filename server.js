@@ -25,16 +25,16 @@ const todo=mongoose.model('todos',new mongoose.Schema({
 
 // Basic route
 app.get('/todos', async(req, res) => {
-    res.json(await todo.find());
+    res.json(await todos.find());
 });
 
 app.post('/todos', async (req,res) => {
-    const todo = await Todo.create({ text : req.body.text });
+    const todo = await todos.create({ text : req.body.text });
     res.json(todo);
 })
 
 app.delete("/todo/:id", async (req, res) => {
-    await Todo.findByIdAndDelete(req.params.id);
+    await todos.findByIdAndDelete(req.params.id);
     res.json({message : "Deleted"})
 })
 
